@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.Platform.Base", "MFKJ.Platform.Base\MFKJ.Platform.Base.csproj", "{878AE461-EE28-4B7C-8237-2F063E3BC2F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.ServiceInterface", "MFKJ.ServiceInterface\MFKJ.ServiceInterface.csproj", "{86D78DF3-A54B-470B-BA98-CD25C65DC9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.Platform.Common", "MFKJ.Platform.Common\MFKJ.Platform.Common.csproj", "{391F9374-9F2B-42DC-A0B6-25CF5EACEFE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.Platform.Business", "MFKJ.Platform.Business\MFKJ.Platform.Business.csproj", "{1183D30C-C1F9-4FC7-A752-47FCF0C47AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.ServiceImplements", "MFKJ.ServiceImplements\MFKJ.ServiceImplements.csproj", "{8C81B135-5726-4D77-82C5-9951C750E118}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.IO", "MFKJ.IO\MFKJ.IO.csproj", "{A862DD70-F1F1-4A7A-B8B6-B12B97E104A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFKJ.IM", "MFKJ.IM\MFKJ.IM.csproj", "{12C18E25-035E-4CF6-8EC5-F2C6FAAAFA3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{878AE461-EE28-4B7C-8237-2F063E3BC2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{878AE461-EE28-4B7C-8237-2F063E3BC2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{878AE461-EE28-4B7C-8237-2F063E3BC2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{878AE461-EE28-4B7C-8237-2F063E3BC2F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86D78DF3-A54B-470B-BA98-CD25C65DC9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D78DF3-A54B-470B-BA98-CD25C65DC9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D78DF3-A54B-470B-BA98-CD25C65DC9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D78DF3-A54B-470B-BA98-CD25C65DC9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391F9374-9F2B-42DC-A0B6-25CF5EACEFE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391F9374-9F2B-42DC-A0B6-25CF5EACEFE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391F9374-9F2B-42DC-A0B6-25CF5EACEFE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391F9374-9F2B-42DC-A0B6-25CF5EACEFE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1183D30C-C1F9-4FC7-A752-47FCF0C47AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1183D30C-C1F9-4FC7-A752-47FCF0C47AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1183D30C-C1F9-4FC7-A752-47FCF0C47AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1183D30C-C1F9-4FC7-A752-47FCF0C47AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C81B135-5726-4D77-82C5-9951C750E118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C81B135-5726-4D77-82C5-9951C750E118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C81B135-5726-4D77-82C5-9951C750E118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C81B135-5726-4D77-82C5-9951C750E118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A862DD70-F1F1-4A7A-B8B6-B12B97E104A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A862DD70-F1F1-4A7A-B8B6-B12B97E104A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A862DD70-F1F1-4A7A-B8B6-B12B97E104A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A862DD70-F1F1-4A7A-B8B6-B12B97E104A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C18E25-035E-4CF6-8EC5-F2C6FAAAFA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C18E25-035E-4CF6-8EC5-F2C6FAAAFA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C18E25-035E-4CF6-8EC5-F2C6FAAAFA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C18E25-035E-4CF6-8EC5-F2C6FAAAFA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
