@@ -12,5 +12,6 @@ namespace MFKJ.IO
         public long CurrentFileLength { get; set; }
         public int SpeedKb { get; set; }
         public string State { get; set; }
+        public string Msg { get; set; }
     }
 }

@@ -78,8 +78,8 @@ namespace IOTest
             {
                 Task.Factory.StartNew(() =>
                 {
-                    //_fileClient = new FileClient(@"127.0.0.1", "8888", SelectFilePath);
-                    //_fileClient.SendFile(SelectFilePath);
+                    _fileClient = new FileClient(@"127.0.0.1", "8888", SelectFilePath);
+                    _fileClient.SendFile(SelectFilePath);
                 });
             });
         }

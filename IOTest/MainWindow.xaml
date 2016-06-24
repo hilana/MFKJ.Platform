@@ -29,8 +29,8 @@
                         <Button Grid.Column="1" Content="Select" Command="{Binding SelectFileCommand}" VerticalAlignment="Center" />
                         <ProgressBar Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="5" />
                     </Grid>
-                    <TextBox Grid.Row="1" />
-                    <Button Grid.Row="2" Content="Upload" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <TextBox Grid.Row="1" Text="{Binding RevMsg}" />
+                    <Button Grid.Row="2" Content="Upload" Command="{Binding UploadCommand}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Grid>
             </TabItem>
         </TabControl>

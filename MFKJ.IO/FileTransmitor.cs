@@ -232,7 +232,7 @@ namespace MFKJ.IO
         #endregion
 
         #region Field
-        public const int BufferSize = 1024;
+        public const int BufferSize = 102400;
         public const int PerLongCount = sizeof(long);
         public const int MinThreadCount = 1;
         public const int MaxThreadCount = 9;
