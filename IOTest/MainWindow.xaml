@@ -1,0 +1,38 @@
+﻿<Window x:Class="IOTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IOTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TabControl Margin="10">
+            <TabItem Header="Server">
+                <Grid>
+                    <Button Content="Start" Command="{Binding StartServerCommand}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Client">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32" />
+                        <RowDefinition />
+                        <RowDefinition Height="32" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition Width="0.2*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="{Binding SelectFilePath}" VerticalAlignment="Center" />
+                        <Button Grid.Column="1" Content="Select" Command="{Binding SelectFileCommand}" VerticalAlignment="Center" />
+                        <ProgressBar Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="5" />
+                    </Grid>
+                    <TextBox Grid.Row="1" />
+                    <Button Grid.Row="2" Content="Upload" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

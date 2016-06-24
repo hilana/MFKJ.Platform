@@ -240,6 +240,9 @@ namespace MFKJ.IO
         public const string TempExtension = ".temp";
         private const long SplitSize = 1024L * 1024L * 100L;
         public static readonly IPEndPoint TestIP;
+
+        public static event EventHandler<RevEventArg> UploadREventHandler;
+        public static event EventHandler<RevEventArg> DownloadREventHandler;
 #if TransmitLog
         private static StreamWriter transmitLoger;
 #endif
@@ -493,6 +496,7 @@ namespace MFKJ.IO
             Buffer.BlockCopy(BitConverter.GetBytes(fileLength), 0, worker.Buffer, 0, PerLongCount);
             string fileName = file.Name;
             worker.Client.Send(worker.Buffer, 0, PerLongCount + Encoding.Default.GetBytes(fileName, 0, fileName.Length, worker.Buffer, PerLongCount), SocketFlags.None);
+            
             Console.WriteLine("Sending file:" + fileName + ".Plz wait...");
             int threadCount = GetThreadCount(fileLength);
             SendWorker[] workers = new SendWorker[threadCount];
@@ -562,6 +566,7 @@ namespace MFKJ.IO
             string fileName = Encoding.Default.GetString(worker.Buffer, PerLongCount, recv - PerLongCount);
             Console.WriteLine("Receiveing file:" + fileName + ".Plz wait...");
             int threadCount = GetThreadCount(fileLength);
+            Console.WriteLine("ThreadCount:" + threadCount);
             ReceiveWorker[] workers = new ReceiveWorker[threadCount];
             for (int i = 0; i < threadCount; i++)
             {
@@ -629,15 +634,29 @@ namespace MFKJ.IO
             #region Breakpoint
             int speed;
             long value = 0L;
+            var revEventArg = new RevEventArg();
             do
             {
                 speed = workers.ReportSpeed(ref value);
                 Console.WriteLine("waiting for other threads. Progress:" + value + "/" + fileLength + ";Speed:" + speed + "kb/s.");
-                Thread.Sleep(1000);
+                revEventArg.AllFileLength = fileLength;
+                revEventArg.CurrentFileLength = value;
+                revEventArg.SpeedKb = speed;
+                revEventArg.State = "Running";
+                UploadREventHandler?.Invoke(null, revEventArg);
+                //Thread.Sleep(1000);
             }
             while (!workers.IsAllFinished());
             speed = workers.ReportSpeed(ref value);
             Console.WriteLine("waiting for other threads. Progress:" + value + "/" + fileLength + ";Speed:" + speed + "kb/s.");
+            if (UploadREventHandler != null)
+            {
+                revEventArg.AllFileLength = fileLength;
+                revEventArg.CurrentFileLength = value;
+                revEventArg.SpeedKb = speed;
+                revEventArg.State = "Running";
+                UploadREventHandler(null, revEventArg);
+            }
             timer.Dispose();
             pointStream.Dispose();
             File.Delete(pointFilePath);
@@ -645,6 +664,14 @@ namespace MFKJ.IO
             #endregion
             watcher.Stop();
             Console.WriteLine("Receive finish.Span Time:" + watcher.Elapsed.TotalMilliseconds + " ms.");
+            if (UploadREventHandler != null)
+            {
+                revEventArg.AllFileLength = fileLength;
+                revEventArg.CurrentFileLength = value;
+                revEventArg.SpeedKb = speed;
+                revEventArg.State = "Finished";
+                UploadREventHandler(null, revEventArg);
+            }
         }
         #endregion
     }

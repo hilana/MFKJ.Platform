@@ -15,6 +15,7 @@ namespace MFKJ.IO
 
         private readonly string _serverIp = @"127.0.0.1";
         private readonly int _serverPort = 8974;
+        public event EventHandler<RevEventArg> UploadREventHandler;
         public FileServer(string serverIp, string serverPort, string baseFolderPath)
         {
             _serverIp = string.IsNullOrEmpty(serverIp) ? _serverIp : serverIp;
@@ -43,6 +44,12 @@ namespace MFKJ.IO
         private void InitFileServer()
         {
             FileTransmiter.SupperReceive(new IPEndPoint(IPAddress.Parse(_serverIp), _serverPort), _baseFolderPath);
+            FileTransmiter.UploadREventHandler += FileTransmiterOnUploadREventHandler;
+        }
+
+        private void FileTransmiterOnUploadREventHandler(object sender, RevEventArg revEventArg)
+        {
+            UploadREventHandler?.Invoke(sender, revEventArg);
         }
     }
 }
